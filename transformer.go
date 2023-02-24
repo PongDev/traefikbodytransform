@@ -1,5 +1,5 @@
 // Package transformer plugin.
-package transformer
+package plugin_transformer
 
 import (
 	"context"

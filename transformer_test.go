@@ -1,4 +1,4 @@
-package transformer_test
+package plugin_transformer
 
 import (
 	"context"
@@ -9,12 +9,10 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
-	transformer "github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware"
 )
 
 func TestServeHTTP(t *testing.T) {
-	cfg := transformer.CreateConfig()
+	cfg := CreateConfig()
 	cfg.TransformerQueryParameterName = "transform"
 	cfg.JSONTransformFieldName = "data"
 	cfg.TokenTransformQueryParameterFieldName = "token"
@@ -22,7 +20,7 @@ func TestServeHTTP(t *testing.T) {
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {})
 
-	handler, err := transformer.New(ctx, next, cfg, "transformer-plugin")
+	handler, err := New(ctx, next, cfg, "transformer-plugin")
 	if err != nil {
 		t.Fatal(err)
 	}
