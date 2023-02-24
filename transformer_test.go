@@ -3,7 +3,7 @@ package transformer_test
 import (
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
@@ -52,7 +52,7 @@ func assertHeader(t *testing.T, req *http.Request, key, expected string) {
 func assertJSONBody(t *testing.T, req *http.Request, expected map[string]string) {
 	t.Helper()
 
-	reqBody, err := ioutil.ReadAll(req.Body)
+	reqBody, err := io.ReadAll(req.Body)
 	if err != nil {
 		t.Fatal(err)
 	}

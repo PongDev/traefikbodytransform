@@ -4,7 +4,7 @@ package transformer
 import (
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 )
@@ -55,7 +55,7 @@ func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	if transformerOption["body"] {
-		reqBody, err := ioutil.ReadAll(req.Body)
+		reqBody, err := io.ReadAll(req.Body)
 		if err != nil {
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 			return
@@ -68,7 +68,7 @@ func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		req.Body = ioutil.NopCloser(strings.NewReader(string(jsonBody)))
+		req.Body = io.NopCloser(strings.NewReader(string(jsonBody)))
 	}
 	if transformerOption["json"] {
 		req.Header.Set("Content-Type", "application/json")
