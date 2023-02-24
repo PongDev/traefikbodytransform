@@ -2,7 +2,7 @@ displayName: BodyTransformerMiddleware Plugin
 type: middleware
 iconPath: .assets/icon.png
 
-import: github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware
+import: github.com/PongDev/traefikbodytransform
 
 summary: "[BodyTransformerMiddleware] Modified request body from query string"
 

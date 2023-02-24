@@ -1,4 +1,4 @@
-package TraefikPluginBodyTransformerMiddleware
+package traefikbodytransform
 
 import (
 	"context"

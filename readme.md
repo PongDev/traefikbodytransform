@@ -4,7 +4,7 @@ This repository includes an plugin, `transformer`
 
 - [See Here](#usage)
 
-[![Build Status](https://github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware/workflows/Main/badge.svg?branch=main)](https://github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware/actions)
+[![Build Status](https://github.com/PongDev/traefikbodytransform/workflows/Main/badge.svg?branch=main)](https://github.com/PongDev/traefikbodytransform/actions)
 
 The existing plugins can be browsed into the [Plugin Catalog](https://plugins.traefik.io).
 
@@ -43,7 +43,7 @@ The following declaration (given here in YAML) defines a plugin:
 experimental:
   plugins:
     transformer:
-      moduleName: github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware
+      moduleName: github.com/PongDev/traefikbodytransform
       version: v0.1.0
 ```
 
@@ -106,10 +106,10 @@ The source code of the plugin should be organized as follows:
 experimental:
   localPlugins:
     transformer:
-      moduleName: github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware
+      moduleName: github.com/PongDev/traefikbodytransform
 ```
 
-(In the above example, the `transformer` plugin will be loaded from the path `./plugins-local/src/github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware`.)
+(In the above example, the `transformer` plugin will be loaded from the path `./plugins-local/src/github.com/PongDev/traefikbodytransform`.)
 
 ```yaml
 # Dynamic configuration
