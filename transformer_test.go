@@ -56,8 +56,12 @@ func assertJSONBody(t *testing.T, req *http.Request, expected map[string]string)
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	jsonBody := make(map[string]string)
-	json.Unmarshal(reqBody, &jsonBody)
+	err = json.Unmarshal(reqBody, &jsonBody)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if !reflect.DeepEqual(jsonBody, expected) {
 		t.Errorf("invalid json body: %s", jsonBody)
