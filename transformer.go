@@ -1,5 +1,5 @@
-// Package transformer plugin.
-package transformer
+// Package TraefikPlugin_BodyTransformerMiddleware plugin.
+package TraefikPlugin_BodyTransformerMiddleware
 
 import (
 	"context"
