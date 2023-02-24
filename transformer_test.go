@@ -1,4 +1,4 @@
-package plugin_transformer
+package transformer
 
 import (
 	"context"
