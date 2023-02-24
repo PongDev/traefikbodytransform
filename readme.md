@@ -59,11 +59,11 @@ http:
         - my-plugin
 
   services:
-   service-foo:
+    service-foo:
       loadBalancer:
         servers:
           - url: http://127.0.0.1:5000
-  
+
   middlewares:
     my-plugin:
       plugin:
@@ -120,11 +120,11 @@ http:
         - my-plugin
 
   services:
-   service-foo:
+    service-foo:
       loadBalancer:
         servers:
           - url: http://127.0.0.1:5000
-  
+
   middlewares:
     my-plugin:
       plugin:
@@ -268,3 +268,8 @@ In order for your plugin to be successfully imported by Plugins Catalog, consult
 - There must be a valid `go.mod` file at the root of your project.
 - Your plugin must be versioned with a git tag.
 - If you have package dependencies, they must be vendored and added to your GitHub repository.
+
+## Extra
+
+- Thanks for template from https://github.com/traefik/plugindemo
+- Thanks for icon from <a href="https://www.flaticon.com/free-icons/transformation" title="transformation icons">Transformation icons created by Freepik - Flaticon</a>
