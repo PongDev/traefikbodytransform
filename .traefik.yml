@@ -4,9 +4,9 @@ iconPath: .assets/icon.png
 
 import: github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware
 
-summary: '[BodyTransformerMiddleware] Modified request body from query string'
+summary: "[BodyTransformerMiddleware] Modified request body from query string"
 
 testData:
-  Headers:
-    X-Demo: test
-    X-URL: '{{URL}}'
+  transformerQueryParameterName: "transform"
+  jsonTransformFieldName: "data"
+  tokenTransformQueryParameterFieldName: "token"
