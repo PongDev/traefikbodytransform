@@ -1,4 +1,4 @@
-// Package transformer plugin.
+// Package plugin_transformer plugin.
 package plugin_transformer
 
 import (
