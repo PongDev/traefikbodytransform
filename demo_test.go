@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/traefik/plugindemo"
+	plugindemo "github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware"
 )
 
 func TestDemo(t *testing.T) {

@@ -1,10 +1,10 @@
-displayName: Demo Plugin
+displayName: BodyTransformerMiddleware Plugin
 type: middleware
 iconPath: .assets/icon.png
 
-import: github.com/traefik/plugindemo
+import: github.com/PongDev/TraefikPlugin-BodyTransformerMiddleware
 
-summary: '[Demo] Add Request Header'
+summary: '[BodyTransformerMiddleware] Modified request body from query string'
 
 testData:
   Headers:
