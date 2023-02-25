@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -45,6 +46,13 @@ func New(ctx context.Context, next http.Handler, config *Config, name string) (h
 	}, nil
 }
 
+func (a *transformer) log(format string) {
+	_, writeLogError := os.Stderr.WriteString(a.name + ": " + format)
+	if writeLogError != nil {
+		panic(writeLogError.Error())
+	}
+}
+
 func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	transformerOption := make(map[string]bool)
 
@@ -57,6 +65,8 @@ func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	if transformerOption["body"] {
 		reqBody, err := io.ReadAll(req.Body)
 		if err != nil {
+			a.log(err.Error())
+
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -65,6 +75,8 @@ func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 			a.jsonTransformFieldName: string(reqBody),
 		})
 		if err != nil {
+			a.log(err.Error())
+
 			http.Error(rw, err.Error(), http.StatusInternalServerError)
 			return
 		}
