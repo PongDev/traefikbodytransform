@@ -81,6 +81,7 @@ func (a *transformer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 			return
 		}
 		req.Body = io.NopCloser(strings.NewReader(string(jsonBody)))
+		req.ContentLength = int64(len(jsonBody))
 	}
 	if transformerOption["json"] {
 		req.Header.Set("Content-Type", "application/json")
