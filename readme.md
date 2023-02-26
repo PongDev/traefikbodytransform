@@ -1,8 +1,30 @@
 This repository includes an plugin, `transformer`
 
+# About the plugin
+
+- This plugin used to transform request body before pass request through router.
+
+- Use case:
+
+  - The sender cannot manipulate request body, but can manipulate query parameters.
+
+  - Use for transform request body Content-Type (Currently only to application/json)
+
+  - Use for wrap request body from string to json object
+
+  - Use for wrap token from query parameters to Authorization Bearer Token Header
+
+# Configuration
+
+- `transformerQueryParameterName`: set where transformer plugin should read options (default: "transform")
+
+- `jsonTransformFieldName`: new json field to wrapped string data in request body (default "data")
+
+- `tokenTransformQueryParameterFieldName`: token query parameter to wrapped into Authorization Bearer Token Header (default "token")`
+
 # Plugin Usage
 
-- [See Here](#usage)
+- For how to setup: [See Here](#usage)
 
 [![Build Status](https://github.com/PongDev/traefikbodytransform/workflows/Main/badge.svg?branch=main)](https://github.com/PongDev/traefikbodytransform/actions)
 
@@ -44,7 +66,7 @@ experimental:
   plugins:
     transformer:
       moduleName: github.com/PongDev/traefikbodytransform
-      version: v0.1.5
+      version: v0.1.0
 ```
 
 Here is an example of a file provider dynamic configuration (given here in YAML), where the interesting part is the `http.middlewares` section:
